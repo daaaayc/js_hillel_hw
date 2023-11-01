@@ -2,7 +2,7 @@
 let Earth;
 
 //2) Create a variable to store the name of the current site visitor.
-let currentUser;
+let currentVisitor;
 
 //3) Create "var" variable named myAge and set its value equal to 30
 var myAge = 30;
@@ -11,7 +11,7 @@ var myAge = 30;
 let myName = "Patrick";
 
 //5) Create "const" variable named myBool and set its value equal to false
-const myBol = false;
+const myBool = false;
 
 //6) Display the sum of 15 + 30, using two variables: x and y.
 let x = 15;
