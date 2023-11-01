@@ -39,4 +39,3 @@ let myUndefined2;
 //Print the value of the admin variable.
 let admin, name = "Bill gates";
 console.log(admin = name);
-
