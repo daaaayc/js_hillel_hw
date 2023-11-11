@@ -79,10 +79,11 @@ for(let i = 10; i >= 0; i--){
 }
 
 /* Task - 5
-  Create program to display the following sequence: 7 14 21 28 35 42 49 */
-  for(let i = 7; i < 50; i+=7 ){
+  Create program to display the following sequence: 7 14 21 28 35 42 49 ... n */
+  for(let i = 7; i <= 49; i+=7 ){
     console.log(i);
   }
+
 
 /* Task - 6
   implement algorithm which calculates factorial for 
@@ -91,13 +92,27 @@ for(let i = 10; i >= 0; i--){
   what is factorial: https://www.mathsisfun.com/numbers/factorial.html 
 */
 
-var numberFactorial = 7;
-let result = numberFactorial;
+var numberFactorialFor = 7;
+let resultFor = 1;
 
-for(let i = numberFactorial-1; i > 1 ; i--){
-  console.log(i);
-  console.log(result *= i);
+for(let i = numberFactorialFor; i > 1 ; i--){
+  console.log(resultFor *= i);
 }
+
+var numberFactorialWhile = 7;
+let resultWhile = 1;
+
+while(numberFactorialWhile > 1){
+  console.log(resultWhile *= numberFactorialWhile);
+  numberFactorialWhile--;
+}
+
+var numberFactorialDW = 7;
+let resultDW = 1;
+do{
+  console.log(resultDW *= numberFactorialDW);
+  numberFactorialDW--;
+}while(numberFactorialDW > 1)
 
 /* Task - 7
   implement algorithm filling a bathtub using buckets. 
@@ -108,8 +123,17 @@ for(let i = numberFactorial-1; i > 1 ; i--){
 
 let bucket = 5; //capacity of one bucket
 let initialBathState = 0; //the initial value of the amount of water in the bathroom
-let bathCapacity = 60; //
+let bathCapacity = 61; //
+let bucketQuantity = 0;
 
-while(initialBathState <= bathCapacity){
-  
+//Пока количество воды в ванне + одно ведро меньше объема ванны даливаем в ванну воду
+while(initialBathState + bucket < bathCapacity){
+  initialBathState += bucket;
+  //Считаем количество ведер
+  bucketQuantity++;
 }
+
+//or
+
+console.log(Math.trunc(bathCapacity/bucket));
+
