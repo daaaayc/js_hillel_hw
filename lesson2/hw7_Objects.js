@@ -6,6 +6,30 @@
 - Напишіть метод getFullName(), який виводитиме повне ім'я. 
 */
 
+function createHuman(year, firstName, LastName){
+   let human = new Object(); 
+   human.year = year;
+   human.firstName = firstName;
+   human.LastName = LastName;
+   return human;
+}
+
+const human = createHuman(1997, "John", "Nerobot");
+
+function getInfo(obj){
+   for (let key in obj){
+      console.log(key + ": " + obj[key]);
+   }
+} 
+
+function getFullName(obj){
+   console.log(obj.LastName + " " + obj.firstName);
+}
+
+getInfo(human);
+getFullName(human);
+
+
 /* Task - 2 (Not required)
    Створіть функцію createRobot, яка створить об'єкт "robot" з об'єкта "person", 
    додавши додаткову властивість до об'єкта "person". 
@@ -15,10 +39,38 @@
 */
 
 
+function createRobot(obj){
+   let robot = new Object, clone = new Object;
+   robot.batteryEnergy = Math.round(Math.random() * 100) + 1;
+   
+   for(let key in obj){
+      clone[key] = obj[key];
+   }
+
+   robot = Object.assign(clone, robot);
+   return robot;
+}
+
+let robot = createRobot(human);
+
 /* Task - 3 
    Створіть isARobot, який буде перевіряти, чи є об'єкт роботом
    перевіркою наявності у об'єкта властивості (batteryEnergy)
 */
+
+function isARobot(obj){
+   if (obj.hasOwnProperty("batteryEnergy")){
+      return true;
+   }else {
+      return false;
+   }
+}
+
+console.log(human);
+console.log(robot);
+
+console.log(isARobot(human));
+console.log(isARobot(robot));
 
 /* Task - 4 (Not required)
 
@@ -35,3 +87,13 @@ var services = {
 - створити метод minPrice() - який повертає мінімальний price
 - створити метод maxPrice() - який повертає максимальний price
 */
+
+var services = {
+	"стрижка": "60",
+	"гоління": "80",
+	"Миття голови": "100"
+};
+
+
+
+
