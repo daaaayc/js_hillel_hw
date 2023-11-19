@@ -6,11 +6,11 @@
 - Напишіть метод getFullName(), який виводитиме повне ім'я. 
 */
 
-function createHuman(year, firstName, LastName){
+function createHuman(year, firstName, lastName){
    let human = new Object(); 
    human.year = year;
    human.firstName = firstName;
-   human.LastName = LastName;
+   human.lastName = lastName;
    return human;
 }
 
@@ -23,7 +23,7 @@ function getInfo(obj){
 } 
 
 function getFullName(obj){
-   console.log(obj.LastName + " " + obj.firstName);
+   console.log(obj.firstName + " " + obj.lastName);
 }
 
 getInfo(human);
@@ -42,16 +42,17 @@ getFullName(human);
 function createRobot(obj){
    let robot = new Object, clone = new Object;
    robot.batteryEnergy = Math.round(Math.random() * 100) + 1;
-   
+   //Нужно для того что бы избавится от ссылки на объект human
    for(let key in obj){
       clone[key] = obj[key];
    }
 
-   robot = Object.assign(clone, robot);
-   return robot;
+   return Object.assign(clone, robot);
 }
 
 let robot = createRobot(human);
+console.log(human);
+console.log(robot);
 
 /* Task - 3 
    Створіть isARobot, який буде перевіряти, чи є об'єкт роботом
@@ -66,8 +67,6 @@ function isARobot(obj){
    }
 }
 
-console.log(human);
-console.log(robot);
 
 console.log(isARobot(human));
 console.log(isARobot(robot));
@@ -93,6 +92,38 @@ var services = {
 	"гоління": "80",
 	"Миття голови": "100"
 };
+
+function price(obj){
+   let sum = 0;
+   for(let key in obj) {
+      sum += parseInt(obj[key]) 
+   }
+return sum;
+}
+
+
+function minPrice(obj){
+   let min = Infinity;
+   for(let key in obj) {
+      if (min > parseInt(obj[key])) 
+      min = parseInt(obj[key]) 
+   }
+return min;
+}
+
+function maxPrice(obj){
+   let max = -Infinity;
+   for(let key in obj) {
+      if (max < parseInt(obj[key])) 
+      max = parseInt(obj[key]) 
+   }
+return max;
+} 
+
+console.log("Общая сумма услуг = " + price(services) + " грн");
+console.log("Минимальная цена услуги = " + minPrice(services) + " грн");
+console.log("Максимальная цена услуги = " + maxPrice(services) + " грн");
+
 
 
 
