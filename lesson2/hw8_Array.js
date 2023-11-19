@@ -3,13 +3,43 @@
     Створіть функцію, яка буде повертати другий елемент з масиву
 */
 
+let array1 = [5, "test", 78, "Avrora", null];
+
+function getSecondItem(arr){
+    return arr[1];
+}
+
+console.log(getSecondItem(array1));
+
 /* Task - 2
     Створіть функцію, який додасть 1 елемент до масиву з попередньої задачи (array1) (наприклад, "new item")
 */
 
+function addNewItem(arr){
+    arr[arr.length] = "newItem";
+}
+
+
+addNewItem(array1);
+console.log(array1);
+
+
 /* Task - 3
     Створіть другий масив (array2), потім створить функцію, яка отримує 2 масиви і повертає масив, що містить елементи з масивів array1 та array2
 */
+
+let array2 = [7, "test2", 87, "arorvA", true];
+
+function mergeTwoArray(fArray, sArray){
+    return fArray.concat(sArray);
+}
+
+
+console.log(mergeTwoArray(array1,array2));
+console.log(array1);
+console.log(array2);
+
+
 
 /* Task - 4 (Not required)
     Створіть функцію, яка буде повертає новий масив заданої довжини, заповнений заданим значенням
