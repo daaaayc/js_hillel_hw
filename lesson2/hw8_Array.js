@@ -177,8 +177,47 @@ console.log(minItem([6,8,2,9,1,3]));
    Створити функцію, яка поверне кількість допустимих (НЕ not null/undefined) значень масиву
 */
 
+function validate(arr){
+    let countNull = 0, countUndefined = 0, valid = new Object;
+    for(let i = 0; i < arr.length; i++){
+        if(arr[i] === null){
+            countNull++;
+        }
+        if(arr[i] === undefined){
+            countUndefined++;
+        }
+    }
+    valid.null = countNull;
+    valid.undefined = countUndefined;
+    return valid;
+}
+
+console.log(validate([5,4,"test", "", 0, null, undefined,45,23,645,75,123,'wefwef','werwer','werwerwer',undefined]));
+
 /* Task - 11 (Not required)
 
    Створити функцію, яка відфільтрує нульові та невизначені значення
   якщо кількість невірних записів більше 3 - потрібно згенерувати помилку "Дані потрібно переглянути"
 */
+
+function validate(arr){
+    let count = 0, array = new Array;
+    for(let i = 0; i< arr.length; i++){
+        
+        if(arr[i] !== null && arr[i] !== undefined){
+            array[i] = arr[i];
+        }
+        if(arr[i] === null){ 
+            count++;
+        }
+        if(arr[i] === undefined){
+            count++;
+        }
+        if (count == 3){
+            return "Дані потрібно переглянути"
+        }
+    }
+    return array;
+}
+
+console.log(validate([5,4,"test", "", 0, null,45,23,645,75,123,'wefwef','werwer','werwerwer',undefined]));
