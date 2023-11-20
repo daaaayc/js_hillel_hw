@@ -74,6 +74,23 @@ console.log(getArray(5, "Sio"));
     * не використовуйте цикли
     * https://www.w3schools.com/jsref/jsref_filter.asp
 */
+//переделать
+let gameOfThrone1 = [{name: "John Snow", age: 45}, 
+                    {name: "Cersei Lannister", age: 32}, 
+                    {name: "Daenerys Targaryen", age: 18}, 
+                    {name: "Jorah Mormont", age: 28}];
+
+    function test1(array){
+        let count = 0;
+        if (array.age >= 30)
+        count++;
+
+        return count;
+    }
+
+let result = gameOfThrone1.filter(test1)
+
+console.log(result.length);
 
 /* Task - 7 (Not required)
     Створіть функцію , яка отримує масив об'єктів
@@ -177,6 +194,7 @@ console.log(minItem([6,8,2,9,1,3]));
    Створити функцію, яка поверне кількість допустимих (НЕ not null/undefined) значень масиву
 */
 
+//Переделать
 function validate(arr){
     let countNull = 0, countUndefined = 0, valid = new Object;
     for(let i = 0; i < arr.length; i++){
