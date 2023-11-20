@@ -113,6 +113,12 @@ console.log(getPersonByAgeOver30(gameOfThrone));
  https://www.w3schools.com/jsref/jsref_map.asp
 */
 
+let person = [{name: "Jane", year: 45}, 
+              {name: "Peter", year: 18},
+              {name: "Annie", year: 1},
+              {name: "Lev", year: 5},
+              {name: "Hyde", year: 15}]
+
 /* Task - 9 (Not required)
 
     Створити функцію для знаходження індексу мінімального елементу масиву;
