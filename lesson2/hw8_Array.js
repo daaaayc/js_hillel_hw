@@ -202,17 +202,22 @@ console.log(validate([5,4,"test", "", 0, null, undefined,45,23,645,75,123,'wefwe
 
 function validate(arr){
     let count = 0, array = new Array;
-    for(let i = 0; i< arr.length; i++){
+
+    for(let i = 0; i < arr.length; i++){
+        array[i] = arr[i];
+    }
+
+    for(let i = 0; i< array.length; i++){
         
-        if(arr[i] !== null && arr[i] !== undefined){
-            array[i] = arr[i];
-        }
-        if(arr[i] === null){ 
+        if(array[i] === null){ 
             count++;
+            array.splice(i,1);
         }
-        if(arr[i] === undefined){
+        if(array[i] === undefined){
             count++;
+            array.splice(i,1);
         }
+
         if (count == 3){
             return "Дані потрібно переглянути"
         }
@@ -220,4 +225,7 @@ function validate(arr){
     return array;
 }
 
-console.log(validate([5,4,"test", "", 0, null,45,23,645,75,123,'wefwef','werwer','werwerwer',undefined]));
+
+let test = [5,4,"test", "", 0, null,45,23,645,75,123,null,'wefwef','werwer','werwerwer',undefined];
+console.log(validate(test));
+console.log(test);
