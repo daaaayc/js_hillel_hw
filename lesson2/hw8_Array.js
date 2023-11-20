@@ -46,6 +46,20 @@ console.log(array2);
     https://www.w3schools.com/jsref/jsref_fill.asp
 */
 
+function getArray(length, value){
+    let arr = [];
+
+    for(let i = 0 ; i< length; i++){
+        arr[i] = "";
+    }
+
+    arr.fill(value, 0, length);
+    console.log(arr)
+    return arr; 
+}
+
+console.log(getArray(5, "Sio"));
+
 /* Task - 5 (Not required)
     Створіть функцію , яка отримує масив об'єктів
     наприклад, [{name: "John Snow", age: 45}, {name: "Cersei Lannister", age: 32}, {name: "Daenerys Targaryen", age: 18}, {name: "Jorah Mormont", age: 28}]]
@@ -66,6 +80,25 @@ console.log(array2);
     наприклад, [{name: "John Snow", age: 45}, {name: "Cersei Lannister", age: 32}, {name: "Daenerys Targaryen", age: 18}, {name: "Jorah Mormont", age: 28}]]
     і повертає новий масив усіх людей, старших за 30 років
 */
+
+let gameOfThrone = [{name: "John Snow", age: 45}, 
+                    {name: "Cersei Lannister", age: 32}, 
+                    {name: "Daenerys Targaryen", age: 18}, 
+                    {name: "Jorah Mormont", age: 28}];
+
+function getPersonByAgeOver30(arr){
+    let person = new Array;    
+    for(let i = 0; i < arr.length; i++){
+        for(let key in arr[i]){
+            if(key === 'age' && arr[i][key] >= 30 ){
+                person.push(arr[i].name);
+            }
+        }
+    }
+    return person;
+}
+
+console.log(getPersonByAgeOver30(gameOfThrone));
 
 
 /* Task - 8 (Not required)
