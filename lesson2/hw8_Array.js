@@ -113,17 +113,65 @@ console.log(getPersonByAgeOver30(gameOfThrone));
  https://www.w3schools.com/jsref/jsref_map.asp
 */
 
-let person = [{name: "Jane", year: 45}, 
-              {name: "Peter", year: 18},
-              {name: "Annie", year: 1},
-              {name: "Lev", year: 5},
-              {name: "Hyde", year: 15}]
+let person = [{name: "Jane", age: 45}, 
+              {name: "Peter", age: 18},
+              {name: "Peter", age: 13},
+              {name: "Peter", age: 12},
+              {name: "Peter", age: 6},
+              {name: "Annie", age: 2},
+              {name: "Annie", age: 0},
+              {name: "Annie", age: 3},
+              {name: "Lev", age: 4},
+              {name: "Lev", age: 5},
+              {name: "Hyde", age: 15}]
+
+function addItemState(arr){
+    let person = new Array;
+    
+    
+    for(let i = 0; i < arr.length; i++){
+        person[i] = arr[i];
+        for(let key in arr[i]){
+            if(key === 'age' && arr[i][key] >= 0 && arr[i][key] <= 3){
+                person[i].state = "baby";
+
+            } else if (arr[i][key] >= 4 && arr[i][key] <= 5){
+                person[i].state = "preschooler";
+
+            }else if (arr[i][key] >= 13 && arr[i][key] <= 18){
+                person[i].state = "teenager";
+
+            }else{
+                person[i].state = "Something else";
+
+            }
+
+        }
+    }
+    return person;
+
+}
+
+console.log(addItemState(person));
 
 /* Task - 9 (Not required)
 
     Створити функцію для знаходження індексу мінімального елементу масиву;
     наприклад,  console.log(minItem([6,8,2,9,1,3])) // 4
 */
+
+function minItem(arr){
+    let index = 0, min = arr[0];
+    for(let i = 1; i < arr.length - 1; i++){
+        if(min > arr[i]){
+            min = arr[i];
+            index = i;
+        }
+    }
+    return index;
+}
+console.log(minItem([6,8,2,9,1,3]));
+
 
 /* Task - 10 (Not required)
 
