@@ -113,17 +113,16 @@ console.log(getPersonByAgeOver30(gameOfThrone));
  https://www.w3schools.com/jsref/jsref_map.asp
 */
 
-let person = [{name: "Jane", age: 45}, 
-              {name: "Peter", age: 18},
-              {name: "Peter", age: 13},
-              {name: "Peter", age: 12},
-              {name: "Peter", age: 6},
+let person = [{name: "Jhon", age: 0},
               {name: "Annie", age: 2},
-              {name: "Annie", age: 0},
-              {name: "Annie", age: 3},
-              {name: "Lev", age: 4},
-              {name: "Lev", age: 5},
-              {name: "Hyde", age: 15}]
+              {name: "Tamara", age: 3},
+              {name: "Jane", age: 4}, 
+              {name: "Peter", age: 5},
+              {name: "Henry", age: 12},
+              {name: "Ditmir", age: 13},
+              {name: "Ditrich", age: 15},
+              {name: "Alex", age: 18},
+              {name: "Lev", age: 20}]
 
 function addItemState(arr){
     let person = new Array;
@@ -132,13 +131,13 @@ function addItemState(arr){
     for(let i = 0; i < arr.length; i++){
         person[i] = arr[i];
         for(let key in arr[i]){
-            if(key === 'age' && arr[i][key] >= 0 && arr[i][key] <= 3){
+            if(key === 'age' && person[i][key] >= 0 && person[i][key] <= 3){
                 person[i].state = "baby";
 
-            } else if (arr[i][key] >= 4 && arr[i][key] <= 5){
+            } else if (person[i][key] >= 4 && person[i][key] <= 5){
                 person[i].state = "preschooler";
 
-            }else if (arr[i][key] >= 13 && arr[i][key] <= 18){
+            }else if (person[i][key] >= 13 && person[i][key] <= 18){
                 person[i].state = "teenager";
 
             }else{
