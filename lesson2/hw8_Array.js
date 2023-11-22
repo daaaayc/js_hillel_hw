@@ -78,19 +78,21 @@ console.log(getArray(5, "Sio"));
 let gameOfThrone1 = [{name: "John Snow", age: 45}, 
                     {name: "Cersei Lannister", age: 32}, 
                     {name: "Daenerys Targaryen", age: 18}, 
-                    {name: "Jorah Mormont", age: 28}];
+                    {name: "Jorah Mormont", age: 28},
+                    {name: "John Doe", age: 28},
+                    {name: "Jorah John", age: 28}];
 
-    function test1(array){
-        let count = 0;
-        if (array.age >= 30)
-        count++;
-
-        return count;
+    function getCountPerson(array){
+        let result = array.filter((elem) => {
+            if (elem.name.indexOf('John') !== -1 || elem.age >= 30){
+                return true;  
+            }
+        });
+        return result.length;
     }
 
-let result = gameOfThrone1.filter(test1)
 
-console.log(result.length);
+console.log(getCountPerson(gameOfThrone1));
 
 /* Task - 7 (Not required)
     Створіть функцію , яка отримує масив об'єктів
