@@ -36,8 +36,6 @@ function mergeTwoArray(fArray, sArray){
 
 
 console.log(mergeTwoArray(array1,array2));
-console.log(array1);
-console.log(array2);
 
 
 
@@ -78,7 +76,7 @@ console.log(getArray(5, "Sio"));
 let gameOfThrone1 = [{name: "John Snow", age: 45}, 
                     {name: "Cersei Lannister", age: 32}, 
                     {name: "Daenerys Targaryen", age: 18}, 
-                    {name: "Jorah Mormont", age: 28},
+                    {name: "Jorah Mormont", age: 55},
                     {name: "John Doe", age: 28},
                     {name: "Jorah John", age: 28}];
 
@@ -102,17 +100,18 @@ console.log(getCountPerson(gameOfThrone1));
 
 let gameOfThrone = [{name: "John Snow", age: 45}, 
                     {name: "Cersei Lannister", age: 32}, 
-                    {name: "Daenerys Targaryen", age: 18}, 
+                    {name: "Daenerys Targaryen", age: 18},
+                    {name: "Daenerys Targaryen", age: 45},
+                    {name: "Daenerys Targaryen", age: 4}, 
                     {name: "Jorah Mormont", age: 28}];
 
 function getPersonByAgeOver30(arr){
     let person = new Array;    
     for(let i = 0; i < arr.length; i++){
-        for(let key in arr[i]){
-            if(key === 'age' && arr[i][key] >= 30 ){
+            if(arr[i].age >= 30 ){
                 person.push(arr[i].name);
             }
-        }
+        
     }
     return person;
 }
@@ -132,7 +131,7 @@ console.log(getPersonByAgeOver30(gameOfThrone));
  https://www.w3schools.com/jsref/jsref_map.asp
 */
 
-let person = [{name: "Jhon", age: 0},
+let person = [{name: "Jhon", age: 1},
               {name: "Annie", age: 2},
               {name: "Tamara", age: 3},
               {name: "Jane", age: 4}, 
@@ -141,32 +140,31 @@ let person = [{name: "Jhon", age: 0},
               {name: "Ditmir", age: 13},
               {name: "Ditrich", age: 15},
               {name: "Alex", age: 18},
-              {name: "Lev", age: 20}]
+              {name: "Lev", age: 20}
+            ]
 
 function addItemState(arr){
-    let person = new Array;
-    
-    
-    for(let i = 0; i < arr.length; i++){
-        person[i] = arr[i];
-        for(let key in arr[i]){
-            if(key === 'age' && person[i][key] >= 0 && person[i][key] <= 3){
-                person[i].state = "baby";
+    let newArr = arr.map((currentValue) => {
+        if(currentValue.age >= 0 && currentValue.age <= 3){
+            currentValue.state = "baby";
+            return currentValue;
+        }else if (currentValue.age >= 4 && currentValue.age <= 5){
+            currentValue.state = "preschooler";
+            return currentValue;
 
-            } else if (person[i][key] >= 4 && person[i][key] <= 5){
-                person[i].state = "preschooler";
+        }else if (currentValue.age >= 13 && currentValue.age <= 18){
+            currentValue.state = "teenager";
+            return currentValue;
 
-            }else if (person[i][key] >= 13 && person[i][key] <= 18){
-                person[i].state = "teenager";
-
-            }else{
-                person[i].state = "Something else";
-
-            }
+        }else{
+            currentValue.state = "Something else";
+            return currentValue;
 
         }
-    }
-    return person;
+    });
+    
+    return newArr;
+
 
 }
 
@@ -187,32 +185,29 @@ function minItem(arr){
         }
     }
     return index;
-}
-console.log(minItem([6,8,2,9,1,3]));
 
+
+
+}
+console.log(minItem([6,8,2,9,-1,3,4,3,-1,7,3,3,6,5,3,4,5,0]));
 
 /* Task - 10 (Not required)
 
    Створити функцію, яка поверне кількість допустимих (НЕ not null/undefined) значень масиву
 */
 
-//Переделать
 function validate(arr){
-    let countNull = 0, countUndefined = 0, valid = new Object;
+    let count = 0, countUndefined = 0, valid = new Object;
     for(let i = 0; i < arr.length; i++){
-        if(arr[i] === null){
-            countNull++;
-        }
-        if(arr[i] === undefined){
-            countUndefined++;
+        if(arr[i] != null || arr[i] != undefined){ 
+            count++;   
         }
     }
-    valid.null = countNull;
-    valid.undefined = countUndefined;
-    return valid;
+    return count;
 }
 
-console.log(validate([5,4,"test", "", 0, null, undefined,45,23,645,75,123,'wefwef','werwer','werwerwer',undefined]));
+console.log(validate([5,4,"test", "", 0, null,45,23,645,75,123,'wefwef','werwer','werwerwer',undefined]));
+
 
 /* Task - 11 (Not required)
 
@@ -246,6 +241,5 @@ function validate(arr){
 }
 
 
-let test = [5,4,"test", "", 0, null,45,23,645,75,123,null,'wefwef','werwer','werwerwer',undefined];
+let test = [5,4,"test", "", 0, null,45,23,undefined,75,123,null,'wefwef','werwer','werwerwer'];
 console.log(validate(test));
-console.log(test);
