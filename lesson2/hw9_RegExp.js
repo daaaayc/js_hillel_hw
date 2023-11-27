@@ -1,6 +1,10 @@
 /*  Task - 1
     Напишіть регулярний вираз, який допоможе знайти принаймні шість символів і не містяти літери А (великої або малої)
 */
+text = 'sthsetArfwapglertyh ;oi[omcvawe';
+var re = /[B-Zb-z0-9_ ]{6,}/;
+console.log(text.match(re));
+
 
 /*  Task - 2
 
@@ -10,6 +14,11 @@
  
 */
 
+var text = 'cat car can';
+var re = /(cat|can)/;
+console.log(text + ': ' + text.search(re));
+
+
 /*  Task - 3
 
     text = 'I would like 8 cups of coffee, please.';
@@ -17,6 +26,10 @@
     Напишіть regex, котрий знайде кількість чашок кофе.
  
 */
+text = 'I would like 1855 cups of coffee, please.';
+var re = /\d{1,} cups/;
+console.log(text + ': ' + text.search(re));
+
 
 /*  Task - 4
 
@@ -26,6 +39,10 @@
     Напишіть regex, котрий знайде ВСІ слова котрі починаются на h
  
 */
+
+var text = 'Hello people of 1974. I come from the future. In 2014 we have laser guns, hover boards and live on the moon!';
+var re = /\bh\w+/;
+console.log(text.match(re));
 
 
 /*  Task - 5 (Not required)
