@@ -54,6 +54,10 @@ console.log(text.match(re));
  
 */
 
+var text = 'Hello people of 1974. I come from the future. In 2014 we have laser guns, hover boards and live on the moon!';
+var re = /\b[A-Za-z]{4,6}/;
+console.log(text.match(re));
+
 
 /*  Task - 6 (Not required)
 
@@ -64,6 +68,10 @@ console.log(text.match(re));
  
 */
 
+var text = 'Hello people of 1974. I come from the future. In 2014 we have laser guns, hover boards and live on the moon!';
+var re = /\b[A-Za-z]{5,}/;
+console.log(text.match(re));
+
 /*  Task - 7 (Not required)
 
     var text = 'Hello people of 1974. I come from the future. In 2014 we have laser guns, hover boards and live on the moon!';
@@ -72,6 +80,10 @@ console.log(text.match(re));
     Напишіть regex, котрий знайде ВСІ слова довжина котрих 6 смиволів
  
 */
+
+var text = 'Hello people of 1974. I come from the future. In 2014 we have laser guns, hover boards and live on the moon!';
+var re = /\b[A-Za-z]{6}/;
+console.log(text.match(re));
 
 /*  Task - 8. Paranoya (Not required)
     В нас є масив обєктів в яких міститься email.
